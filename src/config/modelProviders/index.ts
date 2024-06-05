@@ -82,3 +82,4 @@ export { default as StepfunProviderCard } from './stepfun';
 export { default as TogetherAIProviderCard } from './togetherai';
 export { default as ZeroOneProviderCard } from './zeroone';
 export { default as ZhiPuProviderCard } from './zhipu';
+export { default as WenxinProviderCard } from './wenxin';
