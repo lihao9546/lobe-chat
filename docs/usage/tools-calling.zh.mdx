@@ -1,0 +1,10 @@
+# 工具调用 Tools Calling
+
+Tool Calling 是大语言模型的高级能力。你可以通过在 API 请求中传入一组工具列表，让模型智能地选择具体使用哪个工具，并在返回请求中输出多个工具调用的参数 JSON。
+
+<Callout type="info">
+如果你之前没有了解过 Tools Calling， 可以在 [Function Call： Chat 应用的插件基石与交互技术的变革黎明
+](https://lobehub.com/zh/blog/openai-function-call) 这篇文章中了解详情。
+</Callout>
+
+LobeChat 的插件实现基于模型的 Tools Calling 能力，因此插件调用是否正常完全取决于模型本身的 Tool Calling 能力。随着社区中越来越多的大语言模型支持了 Tool Calling 能力，同时得益于 LobeChat 的 Agent Runtime 架构，我们几乎实现了所有主流语言模型的 Tool Calling 调用能力。
