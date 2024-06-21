@@ -13,9 +13,7 @@ title: OpenAI GPT 系列 Tool Calling
 <Image alt="GPT 3.5 Turbo 简单指令的 Tool Calling" src="https://github.com/lobehub/lobe-chat/assets/28616219/1251dfc0-d1c4-4c3d-825e-dd6205793d53" />
 
 <details>
-<summary>Tool Calling 流式输出原始结果示例：</summary>
-
-
+<summary>流式 Tool Calling 原始输出：</summary>
 
 ```jsonl
 [stream start] 2024-21-5 14:22:53.476
@@ -190,6 +188,9 @@ title: OpenAI GPT 系列 Tool Calling
 
 
 <Image alt="GPT 3.5 Turbo 复杂指令的 Tool Calling" src="https://github.com/lobehub/lobe-chat/assets/28616219/125ad028-a621-4433-b5fa-321f8fd76302" />
+
+<details>
+<summary>流式 Tool Calling 原始输出：</summary>
 
 ```
 [stream start] 2024-21-5 15:17:51.3
@@ -439,55 +440,6 @@ title: OpenAI GPT 系列 Tool Calling
 
 
 [stream finished] total chunks: 49
-
- POST /api/chat/openai 200 in 2366ms
- POST /api/text-to-image/openai 200 in 15281ms
-[stream start] 2024-21-5 15:18:9.116
-[chunk 0] 2024-21-5 15:18:9.121
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}]}
-
-
-
-[chunk 1] 2024-21-5 15:18:9.354
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"画"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 2] 2024-21-5 15:18:9.354
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"一"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 3] 2024-21-5 15:18:9.355
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"只"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 4] 2024-21-5 15:18:9.359
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"小"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 5] 2024-21-5 15:18:9.362
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"狗"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 6] 2024-21-5 15:18:9.386
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"的"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 7] 2024-21-5 15:18:9.397
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"照"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 8] 2024-21-5 15:18:9.397
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{"content":"片"},"logprobs":null,"finish_reson":null}]}
-
-
-
-[chunk 9] 2024-21-5 15:18:9.399
-{"id":"chatcmpl-9cSp7LBFsX7NO9qkRZRjTLiF2gTzI","object":"chat.completion.chunk","created":1718954289,"model":"gpt-3.5-turbo-0125","system_fingerprint":null,"choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
 ```
+
+</details>
