@@ -1,10 +1,41 @@
 # 工具调用 Tools Calling
 
-Tool Calling 是大语言模型的高级能力。你可以通过在 API 请求中传入一组工具列表，让模型智能地选择具体使用哪个工具，并在返回请求中输出多个工具调用的参数 JSON。
+Tool Calling 是大语言模型的高级能力。你可以通过在 API 请求中传入一组工具列表，让模型智能地选择具体使用哪个工具，并在返回请求中输出多个工具调用的参数 JSON。随着社区中越来越多的大语言模型支持了 Tool Calling 能力，同时得益于 LobeChat 的 Agent Runtime 架构，我们几乎实现了所有主流大语言模型（ OpenAI 、Claude 、Gemini 等等）的 Tool Calling 调用能力。
 
 <Callout type="info">
 如果你之前没有了解过 Tools Calling， 可以在 [Function Call： Chat 应用的插件基石与交互技术的变革黎明
 ](https://lobehub.com/zh/blog/openai-function-call) 这篇文章中了解详情。
 </Callout>
 
-LobeChat 的插件实现基于模型的 Tools Calling 能力，因此插件调用是否正常完全取决于模型本身的 Tool Calling 能力。随着社区中越来越多的大语言模型支持了 Tool Calling 能力，同时得益于 LobeChat 的 Agent Runtime 架构，我们几乎实现了所有主流语言模型的 Tool Calling 调用能力。
+LobeChat 的插件实现基于模型的 Tools Calling 能力，因此插件调用是否正常完全取决于模型本身的 Tool Calling 能力。作为上层应用，我们认为有必要和我们的用户详细介绍下我们对于各个模型的测试情况，以便帮助大家了解现有的模型能力，在使用插件时有个更加全面的了解。
+
+
+| Provider | Model | 支持 Tool Calling | Tool Calling 进阶 |  | 指令跟随能力（🌟：代表可用，越多代表效果越好  ⛔️：不可用） |  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  |  |  | 并发 | 流式 | 简单 case（查询天气: 告诉我杭州和北京的天气） | 复杂 Case（Dalle 生图，画一只小狗） |
+| OpenAI |  GPT-4-turbo | ✅ | ✅ | ✅ | 🌟🌟🌟 | 🌟🌟🌟🌟 |
+|  | GPT-3.5-turbo | ✅ | ✅ | ✅ | 🌟🌟🌟 | 🌟🌟 |
+| Groq<br /> | LLAMA3-70B | ✅ | ✅ | ⛔️ | 🌟🌟🌟 | 🌟🌟🌟🌟 |
+|  | LLAMA3-8B | ✅ | ✅ | ⛔️ | 🌟🌟🌟 | 🌟🌟 |
+|  | Mixtral-8x7B | ✅ | ⛔️ | ⛔️ | 两个城市：⛔️<br />一个城市：🌟 | 🌟🌟 |
+|  | Gemma-7B | ✅ | ⛔️ | ⛔️ | 两个城市：⛔️<br />一个城市：🌟 | 🌟 |
+| Moonshot（月之暗面） | Moonshot | ✅ | ✅ | ✅ | 🌟🌟🌟🌟 | 🌟🌟🌟🌟🌟 |
+| <br /><br />Minimax<br /> | abab-6.5s-chat | ✅ | ⛔️ | ✅ | 两个城市：⛔️<br />一个城市：🌟 | 🌟🌟🌟🌟🌟 |
+|  | abab-6.5-chat | ✅ | ⛔️ | ⛔️ | 两个城市：⛔️<br />一个城市：🌟 | 🌟🌟 |
+|  | abab-6-chat | ✅ | ⛔️ | ⛔️ | 两个城市：⛔️<br />一个城市：🌟 | 🌟🌟 |
+| Google | Gemini-1.5-pro | ✅ | ⛔️ | ⛔️ | ⛔️ | ⛔️ |
+| Anthropic | haku | ✅ | ⛔️ | ⛔️ | 🌟🌟🌟🌟 | ⛔️ |
+|  | Sonnet | ✅ | ⛔️ | ⛔️ | 🌟🌟🌟🌟 | ⛔️ |
+|  | Opus | ✅ | ⛔️ | ⛔️ | 🌟🌟🌟 | ⛔️ |
+| Zhipu | GLM-4 | ✅ | ⛔️ | ⛔️ | 🌟🌟 | ⛔️ |
+|  | GLM-3 | ✅ | ⛔️ | ⛔️ | 两个城市：⛔️<br />一个城市：🌟 | ⛔️ |
+| Mixtral | Mixtral 8x22B | ✅ | ⛔️ | ⛔️ | ⛔ | 🌟🌟🌟 |
+|  | Mixtral Large | ✅ | ⛔️ | ⛔ | ⛔ | ⛔ |
+| togetherai<br /> | mistralai/Mixtral-8x7B-Instruct-v0.1 | 用的人不多，下次再说 |  |  |  |  |
+|  | mistralai/Mistral-7B-Instruct-v0.1 |  |
+|  | togethercomputer/CodeLlama-34b-Instruct |  |
+| perplexity | pplx 系列 | ⛔️ |  |  |  |  |
+| ZeroOne | Yi 系列 | ⛔️ |  |  |  |  |
+| openrouter | 相当于 Gateway，不计入评估中 |  |  |  |  |  |
+
+
